@@ -46,10 +46,6 @@ export default class Act {
         const matcher = new RegExp('^on([A-Z].*)$');
 
         for (const [key, value] of Object.entries(props)) {
-            if (value === false || value === null || value === undefined) {
-                continue;
-            }
-
             const match = matcher.exec(key);
             if (match) {
                 element.addEventListener(match[1].toLowerCase(), value);
@@ -62,7 +58,6 @@ export default class Act {
             if (child === false || child === null || child === undefined) {
                 continue;
             }
-
 
             switch (typeof child) {
                 case 'string':
