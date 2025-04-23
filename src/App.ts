@@ -6,7 +6,6 @@ export default function App(this: Act) {
 
     const [count, setCount] = this.useState<number>(0);
 
-
     return Act.createElement(
         'div',
         {
