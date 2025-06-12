@@ -79,11 +79,9 @@ export default class Act {
                 continue;
             }
 
-            console.log(typeof child, child);
-
             switch (typeof child) {
                 case 'string':
-                    element.innerText = child;
+                    element.innerText += child;
                     break;
                 default:
                     element.appendChild(child);
