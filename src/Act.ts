@@ -1,4 +1,4 @@
-export function html(strings: TemplateStringsArray, ...values: any[]): Element {
+export function html(strings: TemplateStringsArray, ...values: any[]): HTMLElement[] {
     const element = document.createElement('template');
 
     let innerHtml = '';
@@ -20,7 +20,7 @@ export function html(strings: TemplateStringsArray, ...values: any[]): Element {
 
     element.innerHTML = innerHtml;
 
-    return element.content.firstElementChild!;
+    return Array.from(element.content.children) as HTMLElement[];
 }
 
 export function useState<T>(initialValue: T): [T, (value: T) => void] {

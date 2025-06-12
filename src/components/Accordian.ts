@@ -1,6 +1,6 @@
 import { createElement, useState } from "../Act";
 
-export default function Accordian({title, content, active = false}: {title: string, content: string, active?: boolean}) {
+export default function Accordian({title, content = '', active = false, children = []}: {title: string, content?: string, active?: boolean, children?: HTMLElement[]}) {
 
     const [isOpen, setIsOpen] = useState<boolean>(active);
 
@@ -24,7 +24,8 @@ export default function Accordian({title, content, active = false}: {title: stri
             {
                 "class": "p-4 bg-gray-100 border-t-1 border-gray-300"
             },
-            content
+            content,
+            ...children
         )
     );
 }
