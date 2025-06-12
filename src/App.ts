@@ -1,5 +1,6 @@
 import { createElement, useState } from "./Act";
 import Accordian from "./components/Accordian";
+import Button from "./components/Button";
 import Header from "./components/Header";
 
 export default function App() {
@@ -19,20 +20,11 @@ export default function App() {
                 class: 'container',
             },
             isOpen && createElement('div', {},
-                createElement('button', { "class": "bg-blue-500 text-white p-2 rounded-md", "onClick": () => { setCount(count + 1); } }, 'Increase'),
-                createElement('button', { "class": "bg-blue-500 text-white p-2 rounded-md", "onClick": () => { setCount(count - 1); } }, 'Decrease'),
+                Button({ text: 'Increase', onClick: () => { setCount(count + 1); }, color: "bg-green-500" }),
+                Button({ text: 'Decrease', onClick: () => { setCount(count - 1); }, color: "bg-red-500" }),
                 createElement('p', {}, `Count: ${count}`)
             ),
-            createElement(
-                'button',
-                {
-                    "class": "bg-blue-500 text-white p-2 rounded-md",
-                    "onClick": function (_e: PointerEvent) {
-                        setIsOpen(!isOpen);
-                    }
-                },
-                isOpen ? 'Hide' : `Show (${count})`
-            )
+            Button({ text: isOpen ? 'Hide' : `Show (${count})`, onClick: () => { setIsOpen(!isOpen); } }),
         )
     );
 
