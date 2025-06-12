@@ -1,4 +1,4 @@
-import { createElement, html, useState } from "./Act";
+import { createElement, useState } from "./Act";
 import Accordian from "./components/Accordian";
 import Button from "./components/Button";
 import Header from "./components/Header";
