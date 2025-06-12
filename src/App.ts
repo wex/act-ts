@@ -8,7 +8,7 @@ export default function App() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [count, setCount] = useState<number>(0);
 
-    const accordianData = [
+    const accordianData: {title: string, content?: string, children?: HTMLElement[]}[] = [
         {
             title: 'This is title',
             content: 'This is content'
@@ -23,7 +23,8 @@ export default function App() {
         Header(),
         accordianData.map(item => Accordian({
             title: item.title,
-            children: html`<p>${item.content}</p>`
+            content: item.content ?? '',
+            children: item.children ?? [],
         })),
         createElement(
             'div',
