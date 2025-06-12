@@ -1,13 +1,13 @@
 import { createElement, useState } from "../Act";
 
-export default function Accordian({title, content = '', active = false, children = []}: {title: string, content?: string, active?: boolean, children?: HTMLElement[]}) {
+export default function Accordian({ title, content = '', active = false, children = [] }: { title: string, content?: string, active?: boolean, children?: HTMLElement[] }) {
 
     const [isOpen, setIsOpen] = useState<boolean>(active);
 
     return createElement(
         'div',
         {
-            "class": "bg-gray-200 m-2 border-gray-300 border-1 rounded-md"
+            "class": "bg-gray-200 border-gray-300 border-1 rounded-md my-2"
         },
         createElement(
             'div',
@@ -15,7 +15,7 @@ export default function Accordian({title, content = '', active = false, children
                 "class": "flex justify-start items-center cursor-pointer p-2 px-4 text-lg font-bold",
                 "onClick": () => { setIsOpen(!isOpen); }
             },
-            createElement('span', {class: `${isOpen ? 'rotate-180' : 'rotate-0'} mr-2`}, '⯆'),
+            createElement('span', { class: `${isOpen ? 'rotate-180' : 'rotate-0'} mr-2` }, '⯆'),
             createElement('div', {}, title)
 
         ),
