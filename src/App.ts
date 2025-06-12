@@ -1,29 +1,33 @@
-import Act from "./Act";
+import { createElement, useState } from "./Act";
+import Header from "./components/Header";
 
-export default function App(this: Act) {
+export default function App() {
 
-    const [isOpen, setIsOpen] = this.useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [count, setCount] = useState<number>(0);
 
-    const [count, setCount] = this.useState<number>(0);
-
-    return Act.createElement(
-        'div',
-        {
-            class: 'container',
-        },
-        isOpen && Act.createElement('div', {}, 
-            Act.createElement('button', {onClick: () => { setCount(count + 1); }}, 'Increase'),
-            Act.createElement('button', {onClick: () => { setCount(count - 1); }}, 'Decrease'),
-            Act.createElement('p', {}, `Count: ${count}`)
-        ),
-        Act.createElement(
-            'button',
+    return createElement('main', {},
+        Header(),
+        createElement(
+            'div',
             {
-                onClick: function (_e: PointerEvent) {
-                    setIsOpen(!isOpen);
-                }
+                class: 'container',
             },
-            isOpen ? 'Hide' : `Show (${count})`
+            isOpen && createElement('div', {},
+                createElement('button', { onClick: () => { setCount(count + 1); } }, 'Increase'),
+                createElement('button', { onClick: () => { setCount(count - 1); } }, 'Decrease'),
+                createElement('p', {}, `Count: ${count}`)
+            ),
+            createElement(
+                'button',
+                {
+                    onClick: function (_e: PointerEvent) {
+                        setIsOpen(!isOpen);
+                    }
+                },
+                isOpen ? 'Hide' : `Show (${count})`
+            )
         )
     );
+
 }

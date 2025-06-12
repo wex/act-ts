@@ -23,23 +23,43 @@ export function html(strings: TemplateStringsArray, ...values: any[]): Element {
     return element.content.firstElementChild!;
 }
 
+export function useState<T>(initialValue: T): [T, (value: T) => void] {
+    if (Act.instance === undefined) {
+        throw new Error('Act not initialized');
+    }
+
+    return Act.instance.useState(initialValue);
+}
+
+export function createRoot(container: HTMLElement) {
+    return Act.createRoot(container);
+}
+
+export function createElement(tag: string, props: Record<string, any> = {}, ...children: any[]): HTMLElement {
+    return Act.createElement(tag, props, ...children);
+}
+
 export default class Act {
     private root: HTMLElement;
     private component: Function = () => {};
-    private stateIndex: number = 0;
-    private states: Record<number, any> = {};
+
+    public static instance: Act;
+    public static stateIndex: number = 0;
+    public static states: Record<number, any> = {};
 
     constructor(root: HTMLElement) {
         this.root = root;
     }
 
     public static createRoot(container: HTMLElement) {
-        return new Act(container);
+        Act.instance = new Act(container);
+
+        return Act.instance;
     }
 
     public static createElement(
         tag: string,
-        props: Record<string, any>,
+        props: Record<string, any> = {},
         ...children: any[]
     ) {
         const element = document.createElement(tag);
@@ -59,6 +79,8 @@ export default class Act {
                 continue;
             }
 
+            console.log(typeof child, child);
+
             switch (typeof child) {
                 case 'string':
                     element.innerText = child;
@@ -71,24 +93,24 @@ export default class Act {
         return element;
     }
 
-    public useState<T>(initialValue: T) {
-        const index = this.stateIndex++;
+    public useState<T>(initialValue: T): [T, (value: T) => void] {
+        const index = Act.stateIndex++;
 
-        if (this.states[index] === undefined) {
-            this.states[index] = initialValue;
+        if (Act.states[index] === undefined) {
+            Act.states[index] = initialValue;
         }
 
         return [
-            this.states[index],
+            Act.states[index],
             (value: T) => {
-                this.states[index] = value;
+                Act.states[index] = value;
                 this.render.call(this, this.component);
             }
         ];
     }
 
     public render(component: Function) {
-        this.stateIndex = 0;
+        Act.stateIndex = 0;
 
         this.component = component;
         const element = this.component.call(this);
