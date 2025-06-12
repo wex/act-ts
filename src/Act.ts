@@ -74,7 +74,7 @@ export default class Act {
             }
         }
 
-        for (const child of children) {
+        for (const child of children.flat()) {
             if (child === false || child === null || child === undefined) {
                 continue;
             }

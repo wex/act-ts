@@ -8,12 +8,23 @@ export default function App() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [count, setCount] = useState<number>(0);
 
+    const accordianData = [
+        {
+            title: 'This is title',
+            content: 'This is content'
+        },
+        {
+            title: 'This is title',
+            content: 'This is content'
+        }
+    ];
+
     return createElement('main', {},
         Header(),
-        Accordian({
-            title: 'This is title',
-            children: html`<p>This is content</p><p>This is content</p>`
-        }),
+        accordianData.map(item => Accordian({
+            title: item.title,
+            children: html`<p>${item.content}</p>`
+        })),
         createElement(
             'div',
             {
