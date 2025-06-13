@@ -35,10 +35,8 @@ export default function App() {
                 Navigation(),
                 Container(
                     'summary',
-                    '',
+                    '-mx-10',
                     [
-                        createElement('h2', {}, 'Start'),
-                        createElement('p', {}, 'This is content'),
                         ...accordianData.map(item => Accordian({
                             title: item.title,
                             content: item.content ?? '',
