@@ -5,7 +5,7 @@ export default function Section(id: string, className: string = '', children: HT
         'section',
         {
             "id": id,
-            "class": `${className} max-w-5xl mx-auto bg-white p-10 rounded-t-lg shadow-md`
+            "class": `${className} max-w-7xl mx-auto bg-white p-10 rounded-lg shadow-md`
         },
         ...children
     );

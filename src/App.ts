@@ -2,9 +2,12 @@ import { createElement, useState } from "./Act";
 import Accordian from "./components/Accordian";
 import Button from "./components/Button";
 import Container from "./components/Container";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Section from "./components/Section";
+import Timeline from "./components/Timeline";
+import TimelineEvent from "./components/TimelineEvent";
 
 export default function App() {
 
@@ -14,11 +17,11 @@ export default function App() {
     const accordianData: { title: string, content?: string, children?: HTMLElement[] }[] = [
         {
             title: 'This is title',
-            content: 'This is content'
+            content: 'This is content',
         },
         {
             title: 'This is title',
-            content: 'This is content'
+            content: 'This is content',
         }
     ];
 
@@ -44,6 +47,12 @@ export default function App() {
                         })),
                     ]
                 ),
+                Timeline([
+                    TimelineEvent('Event 1', '2000 - 2025', 'Description 1'),
+                    TimelineEvent('Event 2', '2000 - 2025', 'Description 2'),
+                    TimelineEvent('Event 3', '2000 - 2025', 'Description 3'),
+                    TimelineEvent('Event 4', '2000 - 2025', 'Description 4'),
+                ]),
                 Container(
                     'experience',
                     '',
@@ -63,7 +72,8 @@ export default function App() {
                     ]
                 )
             ]
-        )
+        ),
+        Footer()
     );
 
 }
