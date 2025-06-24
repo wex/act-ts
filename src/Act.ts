@@ -31,6 +31,14 @@ export function useState<T>(initialValue: T): [T, (value: T) => void] {
     return Act.instance.useState(initialValue);
 }
 
+export function useEffect(callback: () => void | (() => void), dependencies: any[] = []) {
+    if (Act.instance === undefined) {
+        throw new Error('Act not initialized');
+    }
+
+    return Act.instance.useEffect(callback, dependencies);
+}
+
 export function createRoot(container: HTMLElement) {
     return Act.createRoot(container);
 }
@@ -46,6 +54,7 @@ export default class Act {
     public static instance: Act;
     public static stateIndex: number = 0;
     public static states: Record<number, any> = {};
+    public static effects: Record<number, { dependencies: any[], cleanup: () => void }> = {};
 
     constructor(root: HTMLElement) {
         this.root = root;
@@ -105,6 +114,31 @@ export default class Act {
                 this.render.call(this, this.component);
             }
         ];
+    }
+
+    public useEffect(callback: () => void | (() => void), dependencies: any[] = []) {
+        const index = Act.stateIndex++;
+
+        const previousDependencies = Act.effects[index]?.dependencies || [];
+        let hasChanged = true;
+
+        hasChanged = dependencies.some((dependencyValue, dependencyIndex) => {
+            return dependencyValue !== previousDependencies[dependencyIndex];
+        });
+
+        if (hasChanged) {
+
+            if (Act.effects[index] !== undefined && Act.effects[index].cleanup !== undefined) {
+                Act.effects[index].cleanup();
+            }
+
+            const cleanup = callback();
+
+            Act.effects[index] = {
+                "dependencies": dependencies,
+                "cleanup": cleanup || (() => {})
+            };
+        }
     }
 
     public render(component: Function) {

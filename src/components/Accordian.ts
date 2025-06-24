@@ -1,9 +1,25 @@
-import { createElement, useState } from "../Act";
+import { createElement, useEffect, useState } from "../Act";
 import Spacer from "./Spacer";
 
 export default function Accordian({ title, content = '', years = '', active = false, children = [] }: { title: string, content?: string, years?: string, active?: boolean, children?: HTMLElement[] }) {
 
     const [isOpen, setIsOpen] = useState<boolean>(active);
+
+    useEffect(() => {
+        const closeEvent = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            window.addEventListener('keydown', closeEvent);
+
+            return () => {
+                window.removeEventListener('keydown', closeEvent);
+            }
+        }
+    }, [isOpen]);
 
     return createElement(
         'div',
@@ -19,8 +35,7 @@ export default function Accordian({ title, content = '', years = '', active = fa
             createElement('span', { class: `${isOpen ? 'rotate-180' : 'rotate-0'} mr-2` }, '⯆'),
             createElement('div', {}, title),
             Spacer(),
-            createElement('small', {}, years)
-
+            createElement('small', {}, isOpen ? 'Press ESC to close' : years)
         ),
         isOpen && createElement(
             'div',
