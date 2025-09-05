@@ -4,7 +4,7 @@ export default function Button({text, onClick, color = 'bg-blue-500'}: {text: st
     return createElement(
         'button',
         {
-            "class": `${color} text-white p-2 rounded-md`,
+            "class": `${color} text-white p-2 rounded-md cursor-pointer`,
             "onClick": onClick
         },
         text

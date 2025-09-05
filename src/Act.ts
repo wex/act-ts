@@ -76,7 +76,7 @@ export default class Act {
 
         for (const [key, value] of Object.entries(props)) {
             const match = matcher.exec(key);
-            if (match) {
+            if (match && typeof value === 'function') {
                 element.addEventListener(match[1].toLowerCase(), value);
             } else {
                 element.setAttribute(key, value);
@@ -90,7 +90,8 @@ export default class Act {
 
             switch (typeof child) {
                 case 'string':
-                    element.innerText += child;
+                    const textNode = document.createTextNode(child);
+                    element.appendChild(textNode);
                     break;
                 default:
                     element.appendChild(child);
