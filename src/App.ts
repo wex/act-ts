@@ -1,9 +1,12 @@
 import { createElement, useState } from "./Act";
 import Accordian from "./components/Accordian";
 import Button from "./components/Button";
+import Column from "./components/Column";
 import Container from "./components/Container";
 import Footer from "./components/Footer";
+import Grid from "./components/Grid";
 import Header from "./components/Header";
+import Heading from "./components/Heading";
 import Navigation from "./components/Navigation";
 import Section from "./components/Section";
 import Timeline from "./components/Timeline";
@@ -47,12 +50,26 @@ export default function App() {
                         })),
                     ]
                 ),
-                Timeline([
-                    TimelineEvent('Event 1', '2000 - 2025', 'Description 1'),
-                    TimelineEvent('Event 2', '2000 - 2025', 'Description 2'),
-                    TimelineEvent('Event 3', '2000 - 2025', 'Description 3'),
-                    TimelineEvent('Event 4', '2000 - 2025', 'Description 4'),
-                ]),
+                Grid([
+                    Column([
+                        Heading('Experience', 2),
+                        Timeline([
+                            TimelineEvent('Event 1', '2000 - 2025', 'Description 1'),
+                            TimelineEvent('Event 2', '2000 - 2025', 'Description 2'),
+                            TimelineEvent('Event 3', '2000 - 2025', 'Description 3'),
+                            TimelineEvent('Event 4', '2000 - 2025', 'Description 4'),
+                        ]),
+                    ]),
+                    Column([
+                        Heading('Education', 2),
+                        Timeline([
+                            TimelineEvent('Event 1', '2000 - 2025', 'Description 1'),
+                            TimelineEvent('Event 2', '2000 - 2025', 'Description 2'),
+                            TimelineEvent('Event 3', '2000 - 2025', 'Description 3'),
+                            TimelineEvent('Event 4', '2000 - 2025', 'Description 4'),
+                        ]),
+                    ]),
+                ], 2),
                 Container(
                     'experience',
                     '',

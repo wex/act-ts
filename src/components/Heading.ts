@@ -1,5 +1,5 @@
 import { createElement } from "../Act";
 
-export default function Heading(text: string) {
-    return createElement('h1', { "class": "text-white text-2xl font-bold my-4" }, text);
+export default function Heading(text: string, level: 1|2|3|4|5|6 = 1, className: string = ''): HTMLElement {
+    return createElement(`h${level}`, { "class": `font-bold my-4 ${className}` }, text);
 }

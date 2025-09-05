@@ -1,6 +1,6 @@
 import { createElement } from "../Act";
 
-export default function Timeline(children: HTMLElement[], className: string = '') {
+export default function Timeline(children: HTMLElement[], className: string = ''): HTMLElement {
     return createElement(
         'div',
         {
