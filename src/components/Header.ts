@@ -12,7 +12,7 @@ export default function Header() {
         createElement(
             'nav',
             {
-                "class": "max-w-7xl mx-auto flex flex-wrap justify-start items-center gap-8 text-white text-xl border-b border-gray-800 pb-4",
+                "class": "max-w-7xl mx-auto flex flex-wrap justify-start items-center gap-8 text-white text-xl border-b border-gray-800 pb-4 max-sm:flex-col",
             },
             [
                 createElement('img', { class: 'w-36 rounded-full border-5 border-gray-100 shadow-lg', src: 'profile.png' }),

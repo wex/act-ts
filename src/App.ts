@@ -24,12 +24,12 @@ export default function App() {
         Header(),
         Section(
             '',
-            'relative mt-[-8em]',
+            'relative mt-[-8em] max-lg:p-2',
             [
                 Grid([
                     Column([
 
-                        Container('me', 'px-10 py-5', [
+                        Container('me', 'px-10 py-5 max-sm:py-2 max-sm:px-6', [
 
                             Heading('Minusta', 2, 'text-2xl uppercase'),
                             Bills([
@@ -86,14 +86,14 @@ export default function App() {
                             
                         ]),
                         
-                    ], 1, '-m-10 mr-0 bg-stone-200 mix-blend-multiply rounded-tl-lg rounded-bl-lg max-lg:col-span-3 max-lg:m-0'),
+                    ], 1, '-m-10 mr-0 bg-stone-200 mix-blend-multiply rounded-tl-lg rounded-bl-lg max-lg:col-span-3 max-lg:m-0 max-lg:rounded-lg'),
                     Column([
 
                         Navigation({
                             '#jobs': 'Työkokemus',
                             '#studies': 'Opinnot',
                             '#picks': 'Lukuja ja onnistumisia',
-                        }, 'border-b-1 border-gray-200'),                        
+                        }, 'border-b-1 border-gray-200 max-lg:mx-0 max-sm:hidden'),                        
                         
                         Container('jobs', '', [
 
