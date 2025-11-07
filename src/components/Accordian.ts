@@ -1,7 +1,7 @@
 import { createElement, useEffect, useState } from "../Act";
 import Spacer from "./Spacer";
 
-export default function Accordian({ title, content = '', years = '', active = false, children = [] }: { title: string, content?: string, years?: string, active?: boolean, children?: HTMLElement[] }) {
+export default function Accordian(title: string, children: HTMLElement[], active: boolean = true) {
 
     const [isOpen, setIsOpen] = useState<boolean>(active);
 
@@ -24,25 +24,24 @@ export default function Accordian({ title, content = '', years = '', active = fa
     return createElement(
         'div',
         {
-            "class": "border-gray-300 border-b-1 hover:bg-green-100 first-of-type:border-t-1"
+            "class": ""
         },
         createElement(
             'div',
             {
-                "class": "flex justify-start items-center cursor-pointer text-lg px-10 py-5",
+                "class": "flex justify-start items-center cursor-pointer text-lg px-10 py-5 hover:bg-blue-50",
                 "onClick": () => { setIsOpen(!isOpen); }
             },
             createElement('span', { class: `${isOpen ? 'rotate-180' : 'rotate-0'} mr-2` }, '⯆'),
             createElement('div', {}, title),
             Spacer(),
-            createElement('small', {}, isOpen ? 'Press ESC to close' : years)
+            createElement('small', {}, isOpen ? 'Press ESC to close' : '')
         ),
         isOpen && createElement(
             'div',
             {
-                "class": "p-10 bg-gray-100 border-t-1 border-gray-300"
+                "class": "p-4 border-t-1 border-gray-300"
             },
-            content,
             ...children
         )
     );
