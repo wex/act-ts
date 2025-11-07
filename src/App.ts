@@ -81,7 +81,7 @@ export default function App() {
                                 'postgres', 'redis', 'composer', 'npm',
                                 'Linux', 'CI/CD', 'Docker', 'podman',
                                 'traefik', 'Ansible', 'borgmatic',
-                                'dbt', '...',
+                                'dbt',
                             ]),
                             
                         ]),

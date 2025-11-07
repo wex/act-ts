@@ -14,7 +14,11 @@ export default function Bills(items: string[], className: string = '', itemClass
             return createElement('li', {
                 "class": `inline-block px-2 py-1 rounded-lg cursor-pointer bg-blue-900 text-white ${itemClassName} ${selected.includes(t) ? 'bg-blue-600!' : ''}`,
                 "onClick": () => {
-                    setSelected([...selected, t]);
+                    if (selected.includes(t)) {
+                        setSelected([...selected.filter(s => s !== t)]);
+                    } else {
+                        setSelected([...selected, t]);
+                    }
                 }
             }, t);
         })
