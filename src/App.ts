@@ -146,7 +146,6 @@ export default function App() {
                         
                         Container('picks', '', [
                             Accordian('Lukuja ja onnistumisia', [
-                                Heading('Lukuja ja onnistumisia', 2, 'text-2xl'),
                                 Skillset('wManage', 'Vuodesta 2012 aktiivikäytössä ollut alusta, tukeutuu Zend Frameworkiin'),
                                 Skillset('Telia, St1, Seppälän', 'Useita sisäisiä työkaluja ja integraatioita'),
                                 Skillset('50+ verkkokauppaa', 'Useita kotimaisia B2B-verkkokauppoja ja niihin liittyvät integraatiot'),

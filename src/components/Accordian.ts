@@ -29,10 +29,10 @@ export default function Accordian(title: string, children: HTMLElement[], active
         createElement(
             'div',
             {
-                "class": "flex justify-start items-center cursor-pointer text-lg px-10 py-5 hover:bg-blue-50",
+                "class": "flex justify-start items-center cursor-pointer text-2xl px-10 py-5 hover:bg-blue-50 max-sm:px-5",
                 "onClick": () => { setIsOpen(!isOpen); }
             },
-            createElement('span', { class: `${isOpen ? 'rotate-180' : 'rotate-0'} mr-2` }, '⯆'),
+            createElement('span', { class: `max-sm:order-last ${isOpen ? 'rotate-180' : 'rotate-0'} mr-2` }, '⯆'),
             createElement('div', {}, title),
             Spacer(),
             createElement('small', { "class": "text-xs bg-gray-50 p-1 font-mono max-lg:hidden" }, isOpen ? 'ESC' : '')
