@@ -1,4 +1,4 @@
-import { createElement, html, useState } from "./Act";
+import { createElement } from "./Act";
 import Accordian from "./components/Accordian";
 import Bills from "./components/Bills";
 import Column from "./components/Column";
@@ -15,8 +15,6 @@ import Section from "./components/Section";
 import Skillset from "./components/Skillset";
 
 export default function App() {
-
-    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return createElement(
         'main',

@@ -35,7 +35,7 @@ export default function Accordian(title: string, children: HTMLElement[], active
             createElement('span', { class: `${isOpen ? 'rotate-180' : 'rotate-0'} mr-2` }, '⯆'),
             createElement('div', {}, title),
             Spacer(),
-            createElement('small', {}, isOpen ? 'Press ESC to close' : '')
+            createElement('small', { "class": "text-xs bg-gray-50 p-1 font-mono" }, isOpen ? 'ESC' : '')
         ),
         isOpen && createElement(
             'div',
