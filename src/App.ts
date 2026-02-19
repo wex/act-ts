@@ -53,8 +53,8 @@ export default function App() {
                             Heading('Teknologiat', 2, 'text-2xl uppercase'),
                             Container('tech', '', [
                                 Skillset('PHP', 'Natiivi'),
-                                Skillset('JS/TS', 'Erinomainen'),
                                 Skillset('SQL', 'Erinomainen'),
+                                Skillset('JS/TS', 'Erinomainen'),
                                 Skillset('CSS/SASS', 'Erinomainen'),
                                 Skillset('C#', 'Hyvä'),
                                 Skillset('Java', 'Hyvä'),
@@ -146,7 +146,8 @@ export default function App() {
                         
                         Container('picks', '', [
                             Accordian('Lukuja ja onnistumisia', [
-                                Skillset('wManage', 'Vuodesta 2012 aktiivikäytössä ollut alusta, tukeutuu Zend Frameworkiin'),
+                                Skillset('wManage', 'Vuodesta 2012 aktiivikäytössä ollut alusta, pohjautuu Zend Frameworkiin'),
+                                Skillset('wTask', 'Sisäinen toiminnanohjausjärjestelmä projektihallintaan, myynninohjaukseen, laskutukseen ja raportointiin'),
                                 Skillset('Telia, St1, Seppälän', 'Useita sisäisiä työkaluja ja integraatioita'),
                                 Skillset('50+ verkkokauppaa', 'Useita kotimaisia B2B-verkkokauppoja ja niihin liittyvät integraatiot'),
                                 Skillset('10+ CRM/PIM/ERP', 'Räätälöityjä CRM-, PIM- ja ERP-ratkaisuja, integraatiot'),
