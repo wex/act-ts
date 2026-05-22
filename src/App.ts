@@ -115,7 +115,7 @@ export default function App() {
                                     Paragraph('Kaksi tyhjästä rakennettua verkkokauppaa, useampia verkkosivuprojekteja'),
                                 ]),
                                 Hr(),
-                                Exp("2025\n2012", [
+                                Exp("2026\n2012", [
                                     Heading('Apollo Nightclub, Yökerho, Bar Bryssel', 3, 'my-0! text-xl'),
                                     Paragraph('Useita ravintoloita ja työnkuvia, mm. plokkari, baarimestari, vuorovastaava, VIP-host'),
                                 ]),

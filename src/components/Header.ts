@@ -15,7 +15,7 @@ export default function Header() {
                 "class": "max-w-7xl mx-auto flex flex-wrap justify-start items-center gap-8 text-white text-xl border-b border-gray-800 pb-4 max-sm:flex-col",
             },
             [
-                createElement('img', { class: 'w-36 rounded-full border-5 border-gray-100 shadow-lg', src: 'profile.png' }),
+                createElement('img', { class: 'w-36 rounded-full border-5 border-gray-100 shadow-lg', src: 'profile.jpg' }),
                 createElement('h1', { "class": "flex flex-col flex-nowrap uppercase text-4xl font-[Passion_One]" }, [
                     createElement('div', { "class": "text-5xl" }, 'Hujanen,'),
                     createElement('div', { "class": "" }, 
